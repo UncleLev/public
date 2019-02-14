@@ -1,0 +1,48 @@
+@media (min-width: 320px) {
+    .container {
+        width: 90%;
+        margin: 0 auto;
+    }
+    .header__nav {
+        justify-content: center;
+        margin-bottom: 40px;
+    }
+
+    .header__title {
+        font-size: 30px;
+        margin: 0 0 90px;
+    }
+
+    .section-title {
+        font-size: 28px;
+        margin: 0 0 20px;
+    }
+    
+    .section-subtitle {
+        font-size: 18px;
+    }
+
+    .about-us__presentation {
+        display: none;
+    }
+
+    .about-us__text {
+        width: 95%;
+        margin: 0 auto;
+    }
+
+    .about-us__text-title {
+        font-size: 18px;
+    }
+
+    .feature__gallery {
+        justify-content: space-around;
+        align-content: space-around;
+        min-height: 500px;
+    }
+
+    .feature__img {
+        width: 170px;
+        height: 159px;
+    }
+}
