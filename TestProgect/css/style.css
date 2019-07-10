@@ -8,10 +8,12 @@ body {
     /* color: #c7c7c7; */
     font-family: "Roboto", sans-serif;
 }
+
 .ul {
     height: 10px;
     background: black;
 }
+
 .container {
     padding-top: 30px;
     width: 90%;
@@ -53,6 +55,14 @@ body {
     background-color: #279212;
 }
 
+.authorlist {
+    list-style: none;
+    margin-bottom: 30px;
+}
+
+.authorlist__item:not(:last-child) {
+    margin-bottom: 15px;
+}
 
 .ShoutsList {
     display: flex;
@@ -60,7 +70,7 @@ body {
     justify-content: space-between;
 }
 
-.authorlist__item {
+.Shoutlist__item {
     list-style: none;
     width: 26%;
     min-width: 250px;
@@ -71,23 +81,10 @@ body {
     margin-bottom: 30px;
 }
 
-.authorlist__name {
-    margin-bottom: 20px;
-}
-
-.authorlist__item--added {
+.Shoutlist__item--added {
     box-shadow: 0 3px 3px 0 rgba(25, 218, 0, 0.55), 0 1px 5px 0 rgba(25, 218, 0, 0.55), 0 3px 1px -2px rgba(25, 218, 0, 0.55);
 }
 
-
-.count-of-shouts {
-    position: absolute;
-    top: 14px;
-    right: 13px;
-}
-
-
-element.style {
+.Shoutlist__name {
     margin-bottom: 20px;
-    padding-top: 10px;
 }

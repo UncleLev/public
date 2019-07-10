@@ -1,9 +1,7 @@
 // http://127.0.0.1:5500/index.html
 "use strict";
 
-
-
-function randomNumber(from, to) {
+function randomNumber(from, to) { //creating random number
     if (from > to) {
         let tmp = from;
         from = to;
@@ -22,7 +20,7 @@ function makeRandomText(wordsCounts) {
     while (j <= wordsCounts) {
         j++;
         for (i = 0; i < randomNumber(4, 10); i++) {
-            result += characters.charAt(Math.floor(Math.random() * charactersLength));
+            result += characters.charAt(Math.floor(Math.random() * charactersLength)); //random letter from arr characters
         }
         result += ' ';
     }
@@ -34,8 +32,8 @@ function makeRandomText(wordsCounts) {
 function StartinfDispatchEvent() {
 
     timer = setInterval(() => {
-        interval = randomNumber(1000, 5000);
-        let event = new CustomEvent(
+        interval = randomNumber(1000, 5000); //random interval 1s-5s
+        let event = new CustomEvent( 
             "shout", {
                 "detail": {
                     author: authorsList[randomNumber(0, authorsList.length)],
@@ -44,12 +42,12 @@ function StartinfDispatchEvent() {
             }
         )
         ShoutsList.dispatchEvent(event);
-    }, interval);
+    }, interval); 
 }
 
 
 
-function k() {
+function btnControler() {
     if (pause) {
         pause = false;
         StartinfDispatchEvent();
@@ -84,8 +82,8 @@ const AuthorList = document.querySelector('.authorlist');
 const ShoutsList = document.querySelector('.ShoutsList');
 
 let interval = randomNumber(1000, 5000);
-let pause = true;
+let pause = true; //check for btn pause
 let timer;
 
-k();
-btnControle.addEventListener('click', k)
+btnControler();
+btnControle.addEventListener('click', btnControler); 
