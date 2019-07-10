@@ -4,8 +4,8 @@
 }
 
 body {
-    background: #353535;
-    color: #c7c7c7;
+    /* background: #353535; */
+    /* color: #c7c7c7; */
     font-family: "Roboto", sans-serif;
 }
 .ul {
@@ -54,17 +54,14 @@ body {
 }
 
 
-.authorlist {
+.ShoutsList {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: space-between;
 }
 
 .authorlist__item {
     list-style: none;
-    align-items: center;
-    align-content: space-around;
-    position: relative;
     width: 26%;
     min-width: 250px;
     border-radius: 2px;

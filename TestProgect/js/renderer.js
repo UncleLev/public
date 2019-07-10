@@ -1,61 +1,52 @@
-function renderItem(obj, text, parentNode) {
-    let check = true;
+function renderItem(obj, text, parentNode, listParent) {
+    let IsElementInListCheck = false;
     let count;
 
-    parentNode.childNodes.forEach((el, i) => {
+    parentNode.childNodes.forEach((element, i = 1) => {
         if (i != 0) {
-            
-            if (el.getAttribute('id') == obj._id) {
-                check = !check;
-                count = Number(el.firstElementChild.textContent);
-                el.firstElementChild.textContent = count + 1;
-                // el.q
-                // console.log(el.querySelector('.authorlist__text'));
+            if (element.getAttribute('id') == obj._id) {
+                const AuthorItem = document.createElement('LI');
+
+                IsElementInListCheck = true;
+                console.log('в списку');
                 
-                el.querySelector('.authorlist__text').textContent = text;
-                text
-                el.classList.add('authorlist__item--added');
-                setTimeout(() => {
-                    el.classList.remove('authorlist__item--added');
-                }, 1000);
-            } 
+            } else {
+                console.log('no в списку ');
+
+            }
         }
-    })
-
-    if (check) {
-
-        const AuthorItem = document.createElement('LI');
-        AuthorItem.classList.add('authorlist__item');
-        AuthorItem.classList.add('authorlist__item--added');
-        AuthorItem.setAttribute('id', obj._id);
-
-        setTimeout(() => {
-            AuthorItem.classList.remove('authorlist__item--added');
-        }, 1000);
-
-        const countOfShout = document.createElement('span');
-        countOfShout.classList.add('count-of-shouts');
-        countOfShout.textContent = 1;
-
-        const AuthorName = document.createElement('p');
-        AuthorName.classList.add('authorlist__name')
-        AuthorName.textContent = obj.name;
-
-        const AuthorText = document.createElement('p');
-        AuthorText.classList.add('authorlist__text')
-        AuthorText.textContent = text;
-
-        let arr = [countOfShout, AuthorName, AuthorText];
-
-        arr.forEach((el) => {
-            AuthorItem.appendChild(el);
-        })
-        parentNode.appendChild(AuthorItem);
+    });
+    if(IsElementInListCheck) {
+        
     }
+    console.log(IsElementInListCheck);
+    
+    const AuthorItem = document.createElement('LI');
+    AuthorItem.classList.add('authorlist__item');
+    AuthorItem.classList.add('authorlist__item--added');
+    AuthorItem.setAttribute('id', obj._id);
+    setTimeout(() => {
+        AuthorItem.classList.remove('authorlist__item--added');
+    }, 1000);
+
+    const AuthorName = document.createElement('p');
+    AuthorName.classList.add('authorlist__name')
+    AuthorName.textContent = obj.name;
+
+    const AuthorText = document.createElement('p');
+    AuthorText.classList.add('authorlist__text')
+    AuthorText.textContent = text;
+
+    const ArrayOfElemnts = [AuthorName, AuthorText];
+
+    ArrayOfElemnts.forEach((element) => {
+        AuthorItem.appendChild(element);
+    })
+    parentNode.appendChild(AuthorItem);
 }
 
-function e(e) {
-    renderItem(e.detail.author, e.detail.text, x);
+function e(event) {
+    renderItem(event.detail.author, event.detail.text, ShoutsList, AuthorList);
 }
 
-x.addEventListener("shout", e);
+ShoutsList.addEventListener("shout", e);

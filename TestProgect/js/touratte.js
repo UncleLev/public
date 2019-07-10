@@ -3,21 +3,6 @@
 
 
 
-
-const authorsList = [{
-        _id: 1,
-        name: 'Todd',
-    },
-    {
-        _id: 2,
-        name: 'Rob',
-    },
-    {
-        _id: 3,
-        name: 'Sevil',
-    },
-];
-
 function randomNumber(from, to) {
     if (from > to) {
         let tmp = from;
@@ -27,14 +12,14 @@ function randomNumber(from, to) {
     return Math.floor((Math.random() * to) + from)
 }
 
-function makeRandomText(worlsCounts) {
+function makeRandomText(wordsCounts) {
     let result = '';
     let UperCharacters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
     let characters = 'abcdefghijklmnopqrstuvwxyz';
     let charactersLength = characters.length;
     let i = 0;
     let j = 0;
-    while (j <= worlsCounts) {
+    while (j <= wordsCounts) {
         j++;
         for (i = 0; i < randomNumber(4, 10); i++) {
             result += characters.charAt(Math.floor(Math.random() * charactersLength));
@@ -47,8 +32,7 @@ function makeRandomText(worlsCounts) {
 
 
 function StartinfDispatchEvent() {
-    let interval = randomNumber(1000, 500);
-    
+
     timer = setInterval(() => {
         interval = randomNumber(1000, 5000);
         let event = new CustomEvent(
@@ -59,7 +43,7 @@ function StartinfDispatchEvent() {
                 }
             }
         )
-        x.dispatchEvent(event);
+        ShoutsList.dispatchEvent(event);
     }, interval);
 }
 
@@ -81,12 +65,26 @@ function k() {
     }
 }
 
+const authorsList = [{
+    _id: 1,
+    name: 'Todd',
+},
+{
+    _id: 2,
+    name: 'Rob',
+},
+{
+    _id: 3,
+    name: 'Sevil',
+},
+];
+
 const btnControle = document.querySelector('#js-btn');
+const AuthorList = document.querySelector('.authorlist');
+const ShoutsList = document.querySelector('.ShoutsList');
 
-
+let interval = randomNumber(1000, 5000);
 let pause = true;
-let x = document.querySelector('.authorlist');
-let oo = 0;
 let timer;
 
 k();
